@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Special+Elite&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #e0e0e0;
+  margin: 0;
+  padding: 10px;
+  font-family: "Special Elite", monospace;
+  color: #000;
+}
+
+.page {
+  width: 210mm;
+  height: 297mm;
+  background: #fff;
+  margin: 0 auto 15px auto;
+  padding: 11mm 7mm;
+  display: grid;
+  grid-template-columns: repeat(3, 63mm);
+  grid-template-rows: repeat(3, 88mm);
+  grid-auto-flow: row;
+  gap: 3mm;
+  justify-content: center;
+  align-content: center;
+  position: relative;
+  page-break-after: always;
+}
+
+.card {
+  width: 63mm;
+  height: 88mm;
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 0; /* убрано скругление — никаких квадратов в углах при печати */
+  padding: 2.5mm;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-wide {
+  grid-column: span 2;
+  width: auto;
+  border: 3px solid #000;
+}
+
+.card-header {
+  text-align: center;
+  border-bottom: 1.5px solid #000;
+  padding-bottom: 1mm;
+  margin-bottom: 1mm;
+  position: relative;
+  z-index: 1;
+}
+
+.card-tag {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 0.5mm;
+  font-weight: bold;
+  color: #000;
+  border: 1px solid #000;
+  display: inline-block;
+  padding: 0.5px 4px;
+}
+
+.card-title {
+  font-family: "Cinzel", serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.card-subtitle {
+  font-size: 11px;
+  color: #444;
+  font-style: italic;
+}
+
+.card-body {
+  flex-grow: 1;
+  font-size: 11.5px;
+  line-height: 1.35;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  color: #000;
+}
+
+.flavor {
+  font-style: italic;
+  color: #333;
+  border-left: 2px solid #000;
+  padding-left: 2mm;
+  margin: 1mm 0;
+  font-size: 10.5px;
+  line-height: 1.25;
+}
+
+.mechanics {
+  font-weight: bold;
+  color: #000;
+  font-size: 12px;
+  text-decoration: underline;
+}
+
+.watermark {
+  position: absolute;
+  bottom: 2mm;
+  right: 3mm;
+  font-family: "Cinzel", serif;
+  font-size: 32px;
+  color: #ddd;
+  transform: rotate(-15deg);
+  pointer-events: none;
+  z-index: 0;
+  font-weight: 700;
+}
+
+.no-print {
+  text-align: center;
+  color: #000;
+  margin-bottom: 20px;
+  font-family: sans-serif;
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  max-width: 800px;
+  margin: 10px auto;
+  border: 2px solid #000;
+}
+
+.theme-btn {
+  padding: 8px 16px;
+  margin: 5px;
+  cursor: pointer;
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: sans-serif;
+}
+.theme-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+.filter-section {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed #000;
+}
+
+.filter-section select,
+.filter-section input {
+  padding: 7px 10px;
+  margin: 4px 8px;
+  font-size: 13px;
+  font-family: sans-serif;
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 0;
+}
+
+.filter-section input {
+  width: 220px;
+}
+
+
+@media print {
+  body {
+    background: #fff;
+    padding: 0;
+    margin: 0;
+  }
+  .no-print {
+    display: none;
+  }
+  .page {
+    margin: 0;
+    box-shadow: none;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    background: #fff;
+  }
+  @page {
+    size: A4;
+    margin: 0;
+  }
+}

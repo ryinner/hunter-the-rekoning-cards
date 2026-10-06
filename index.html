@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Hunter Cards - Full Deck</title>
+  <link
+    id="theme-css"
+    rel="stylesheet"
+    href="/styles-dark.css"
+  >
+</head>
+
+<body>
+
+  <div class="no-print">
+    <h2>🩸 Полная колода Hunter: The Reckoning 5e</h2>
+    <p>
+      <b>Печать:</b> Ctrl+P → "Сохранить как PDF" → Поля: <b>Нет</b> → Масштаб: <b>100%</b> → Включить <b>Фоновую
+        графику</b>
+    </p>
+    <div>
+      <b>💡 Выбрать тему:</b>
+      <button
+        onclick="setTheme('dark')"
+        class="theme-btn"
+      >
+        🌙 Тёмная
+      </button>
+      <button
+        onclick="setTheme('light')"
+        class="theme-btn"
+      >
+        ☀️ Светлая
+      </button>
+    </div>
+    <p id="theme-info">Текущая тема: <b>Тёмная</b></p>
+    <search class="filter-section">
+      <b>🔍 Фильтр по колоде:</b><br><br>
+      <label>Грань:
+        <select id="filter-edge"></select>
+      </label>
+      <label>Название:
+        <input
+          type="text"
+          id="filter-name"
+          placeholder="Поиск перка или грани..."
+          onkeypress="if(event.key==='Enter') applyFilter()"
+        >
+      </label>
+      <button
+        onclick="applyFilter()"
+        class="theme-btn"
+      >
+        ✅ Применить
+      </button>
+      <button
+        onclick="resetFilter()"
+        class="theme-btn"
+      >
+        🔄 Сбросить
+      </button>
+    </search>
+    <p
+      id="filter-info"
+      style="margin-top:8px;"
+    ></p>
+  </div>
+
+  <div id="pages"></div>
+
+  <script src="/change-theme.js"></script>
+  <script src="/cards-data.js"></script>
+</body>
+
+</html>
